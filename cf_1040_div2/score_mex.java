@@ -1,4 +1,4 @@
-package codeforces_1040_div2;
+package cf_1040_div2;
 
 import java.util.*;
 

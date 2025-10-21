@@ -1,0 +1,81 @@
+# ---- Python build and cache ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ---- Virtual environment ----
+.venv/
+venv/
+ENV/
+env/
+*.env
+.env.bak
+.envrc
+
+# ---- IDEs and editors ----
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ---- OS-generated files ----
+.DS_Store
+Thumbs.db
+
+# ---- Logs and outputs ----
+*.log
+logs/
+*.out
+*.err
+
+# ---- Jupyter and notebooks ----
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ---- Test, temp, or experimental data ----
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.sav
+*.dat
+*.csv
+*.pkl
+
+# ---- Environment or dependency managers ----
+pip-wheel-metadata/
+poetry.lock
+Pipfile.lock
+
+# ---- Coverage and testing ----
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# ---- MyPy and linting ----
+.mypy_cache/
+.pyre/
+.pytype/
+
+# ---- Reports / profiling ----
+*.prof
+*.lprof
+profile_output/
+
+# ---- Project-specific ----
+# Ignore any local experiments or RL runs
+runs/
+checkpoints/
+models/
+results/
+output/

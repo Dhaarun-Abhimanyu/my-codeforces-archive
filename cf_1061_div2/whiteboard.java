@@ -7,32 +7,25 @@ public class whiteboard {
 12: 6, 3, 3
  */
     static int gcd(int n, int k, int[] arr, int max){
-        Arrays.sort(arr);
-        outer:
+        int prefix[] = new int[n+1];
+        int count[] = new int[n+1];
+        for(int i=0;i<n;i++){
+            count[arr[i]]++;
+        }
+        prefix[0] = count[0];
+        for(int i=1;i<=n;i++){
+            prefix[i] = prefix[i-1] + count[i];
+        }
         for(int i=max;i>=1;i--){
-            int left = 0, right=n-1,ans=left;
-            while(left <= right){
-                int mid = (left+right)/2;
-                if(arr[mid] < 4*i){
-                    ans = mid;
-                    left = mid+1;
-                }else{
-                    right = mid-1;
-                }
+            int d4 = Math.min(n,4*i-1);
+            int mult = 0;
+            for(int j=i;j<=d4;j+=i){
+                mult += count[j];
             }
-            if(ans+1 <= k){
+            int rem = prefix[d4] - mult;
+            if(rem <= k){
                 return i;
             }
-            int temp=0;
-            for(int j=0;j<=ans;j++){
-                if(arr[j]%i != 0){
-                    temp++;
-                    if(temp > k){
-                        continue outer;
-                    }
-                }
-            }
-            return i;
         }
         return 1;
     }

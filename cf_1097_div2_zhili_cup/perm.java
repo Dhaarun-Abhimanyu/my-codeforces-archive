@@ -21,7 +21,12 @@ public class perm {
             for(int j=0;j<n;j++){
                 Arrays.sort(space.get(j));
             }
-            
+            long count = 0L;
+            for(int j=0;j<n;j++){
+                for(int k=0;k<n;k++){
+                    
+                }
+            }
         }
     }
 }

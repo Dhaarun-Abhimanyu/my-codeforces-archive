@@ -21,7 +21,7 @@ public class mexor {
             int revmex[] = new int[n];
             revmex[0] = n;
             revmex[1] = n^k;
-            if(revmex[1] > n){
+            if(revmex[1] >= n){
                 System.out.println("NO");
                 continue;
             }

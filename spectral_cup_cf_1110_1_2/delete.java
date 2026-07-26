@@ -28,7 +28,7 @@ public class delete {
             HashSet<Integer> delete = new HashSet<>();
             while(!pairs.isEmpty()){
                 int[] curr = pairs.poll();
-                if(delete.contains((curr[0])) || delete.contains(curr[1])){
+                if(arr[curr[2]] == -1000000000-1 || arr[curr[3]] == -1000000000-1){
                     continue;
                 }
                 score += Math.max(

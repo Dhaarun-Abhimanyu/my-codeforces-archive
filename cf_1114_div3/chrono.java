@@ -9,13 +9,13 @@ public class chrono {
             int n = sc.nextInt();
             int b[] = new int[n];
             List<Integer> pos = new ArrayList<>();
-            List<Integer> neg = new ArrayList<>();
+            TreeMap<Long, Integer> neg = new TreeMap<>();
             for(int j=0;j<n;j++){
                 b[j] = sc.nextInt();
                 if(b[j] > 0){
                     pos.add(b[j]);
                 }else{
-                    neg.add(b[j]);
+                    neg.put((long)b[j], neg.getOrDefault((long)b[j], 0)+1);
                 }
             }
             int posSize = pos.size(), negSize = neg.size();
@@ -24,24 +24,21 @@ public class chrono {
                 continue outer;
             }
             Collections.sort(pos);
-            Collections.sort(neg);
+            //Collections.sort(neg);
             long res[] = new long[n];
             res[0] = pos.get(0);
             long curr = res[0];
             int posind = 1;
             //System.out.println(pos+"\n"+neg);
             for(int j=1;j<n;j++){
-                int hmmind = -1;
+                //long hmmind = neg.higherKey(curr);
                 long tobeadded = 0;
-                for(int k=0;k<neg.size();k++){
-                    if(curr > -neg.get(k)){
-                        hmmind = k;
-                        break;
+                if(neg.higherKey(-curr) != null){
+                    tobeadded = neg.higherKey(-curr);
+                    neg.put(tobeadded, neg.get(tobeadded)-1);
+                    if(neg.get(tobeadded)==0){
+                        neg.remove(tobeadded);
                     }
-                }
-                if(hmmind != -1){
-                    tobeadded = neg.get(hmmind);
-                    neg.remove(hmmind);
                 }else{
                     if(posind >= posSize){
                         System.out.println("-1");
